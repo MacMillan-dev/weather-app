@@ -1,15 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home">
+    <p>Weather in...</p>
+    <WeatherCard />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import WeatherCard from './components/WeatherCard.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    WeatherCard
   }
 }
 </script>
@@ -22,5 +24,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+p {
+  font-weight: bold;
+  font-size: 20px;
+  margin: auto;
 }
 </style>
