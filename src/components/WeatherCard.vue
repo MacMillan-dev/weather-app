@@ -110,8 +110,4 @@ button {
 .flex{
   padding-top:20px;
 }
-/* .icon{
-  width: 75px;
-    height: 65px;
-} */
 </style>
