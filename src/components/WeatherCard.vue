@@ -56,7 +56,7 @@ export default {
           showCard.value=true
       }
 
-    return { location, VUE_APP_WEATHER_API, search, temperature, humidity, windSpeed, imgUrl, cityName, description, showCard };
+    return { location, search, temperature, humidity, windSpeed, imgUrl, cityName, description, showCard };
   },
 };
 </script>
