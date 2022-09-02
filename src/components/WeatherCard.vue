@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="weather-loading" v-if="showCard">
-    <h2 class="city">Location: {{cityName}}</h2>
+    <h2 class="city">Location: {{ cityName }}</h2>
     <div class="flex">
       <img :src="imgUrl" alt="" class="icon" />
       <div class="description">{{description}}</div>
@@ -33,13 +33,13 @@ export default {
     let temperature = ref("0");
     let humidity = ref("0");
     let windSpeed = ref("0");
-    let apiKey = "7845088629a7abe8771d4553505af431";
+    let VUE_APP_WEATHER_API = process.env.VUE_APP_WEATHER_API
     let imgUrl = ref("")
     let description = ref("")
     let showCard = ref(false)
 
     async function search() {
-        await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location.value}&appid=${apiKey}&units=metric`)
+        await fetch (`https://api.openweathermap.org/data/2.5/weather?q=${location.value}&appid=${VUE_APP_WEATHER_API}&units=metric`)
           .then((res) => res.json())
           .then((data) => {
           cityName.value = data.name+","+data.sys.country
@@ -50,16 +50,13 @@ export default {
 
           const iconName = data.weather[0].icon
           imgUrl.value = 'http://openweathermap.org/img/w/' + iconName + '.png'
-          //console.log(imgUrl.value)
-          //console.log(data);
           location.value=''
           })
           .catch((err) => console.log(err));
           showCard.value=true
-          //console.log('clicked')
       }
 
-    return { location, apiKey, search, temperature, humidity, windSpeed, imgUrl, cityName, description, showCard };
+    return { location, VUE_APP_WEATHER_API, search, temperature, humidity, windSpeed, imgUrl, cityName, description, showCard };
   },
 };
 </script>
